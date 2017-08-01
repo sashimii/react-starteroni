@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FlowWebpackPlugin = require('flow-webpack-plugin');
+const sassLintPlugin = require('sasslint-webpack-plugin');
 
 
 const BUILD_DIR = path.resolve(__dirname, 'dist/');
@@ -50,5 +51,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [HtmlWebpackPluginConfig, new FlowWebpackPlugin()]
+  plugins: [HtmlWebpackPluginConfig, new FlowWebpackPlugin(), new sassLintPlugin()]
 }
