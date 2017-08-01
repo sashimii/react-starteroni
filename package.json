@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "flow": "flow",
+    "dev": "webpack-dev-server --env=dev",
+    "build:dev": "webpack --env=dev --progress --profile --colors",
+    "build:dist": "webpack --env=prod --progress --profile --colors"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,34 @@
   "bugs": {
     "url": "https://github.com/sashimii/react-starteroni/issues"
   },
-  "homepage": "https://github.com/sashimii/react-starteroni#readme"
+  "homepage": "https://github.com/sashimii/react-starteroni#readme",
+  "dependencies": {
+    "axios": "^0.15.3",
+    "bootstrap": "^3.3.7",
+    "file-loader": "^0.10.0",
+    "foundation": "^4.2.1-1",
+    "foundation-sites": "^6.3.1",
+    "html-webpack-plugin": "^2.28.0",
+    "path": "^0.12.7",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "svg-url-loader": "^2.0.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.22.0",
+    "css-loader": "^0.26.1",
+    "flow-bin": "^0.51.1",
+    "flow-webpack-plugin": "^0.3.6",
+    "node-sass": "^4.5.0",
+    "prop-types": "^15.5.8",
+    "sass-loader": "^6.0.0",
+    "style-loader": "^0.13.1"
+  }
 }
