@@ -1,9 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FlowWebpackPlugin = require('flow-webpack-plugin');
 const sassLintPlugin = require('sasslint-webpack-plugin');
-
+const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
 
 const BUILD_DIR = path.resolve(__dirname, 'dist/');
 const APP_DIR = path.resolve(__dirname, 'src/client/');
@@ -27,7 +26,18 @@ module.exports = {
   entry: config.entry,
   output: config.output,
   module: {
+    // preLoaders: [
+    //   {
+    //     test: /\.js$/, loader: "flowtype", exclude: /node_modules/
+    //   }
+    // ],
     loaders: [
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader",
+      },
       {
         test: /\.js$/,
         loader: 'babel-loader',
@@ -51,5 +61,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [HtmlWebpackPluginConfig, new FlowWebpackPlugin(), new sassLintPlugin()]
+  plugins: [HtmlWebpackPluginConfig, new FlowBabelWebpackPlugin(), new sassLintPlugin({glob: 'src/**/*.s?(a|c)ss'})]
 }
