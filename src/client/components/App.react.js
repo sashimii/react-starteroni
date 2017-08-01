@@ -1,9 +1,10 @@
 /* @flow */
 
 import React from 'react';
+import './App.scss';
 
 const App = ({a, b} : {a: string, b: string}) =>
-  <div>{ concat(a,b) }</div>;
+  <div className="app-style">{ concat(a,b) }</div>;
 
 export default App;
 

@@ -1,0 +1,4 @@
+// @flow
+
+// Default export
+declare export default { [key: string]: string }

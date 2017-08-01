@@ -1,12 +1,30 @@
 [ignore]
-./dist
-./node_modules
+.*/node_modules/fbjs/.*
+.*/node_modules/editions/.*
 
 [include]
-./src
 
 [libs]
 
 [options]
+# Support webpack's resolve.root
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=src
 
-[lints]
+# Support importing non-js files with webpack
+module.name_mapper='^\(.*\)\.s?css$' -> '<PROJECT_ROOT>/interfaces/CSSModule.js.flow'
+module.name_mapper.extension='jpg' -> '<PROJECT_ROOT>/interfaces/WebpackAsset.js.flow'
+module.name_mapper.extension='png' -> '<PROJECT_ROOT>/interfaces/WebpackAsset.js.flow'
+module.name_mapper.extension='svg' -> '<PROJECT_ROOT>/interfaces/WebpackAsset.js.flow'
+
+# Support for ES7 classes
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
+
+# Support @decorators
+esproposal.decorators=ignore
+
+# Allow skipping individual lines
+suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe
+suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
+suppress_comment=\\(.\\|\n\\)*\\$IgnoreGlobal

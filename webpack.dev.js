@@ -1,16 +1,18 @@
 const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FlowWebpackPlugin = require('flow-webpack-plugin');
+
+
+const BUILD_DIR = path.resolve(__dirname, 'dist/');
+const APP_DIR = path.resolve(__dirname, 'src/client/');
+
+
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './src/client/index.html',
   filename: 'index.html',
   inject: 'body'
 });
-
-const FlowWebpackPlugin = require('flow-webpack-plugin');
-
-const BUILD_DIR = path.resolve(__dirname, 'dist/');
-const APP_DIR = path.resolve(__dirname, 'src/client/');
 
 const config = {
   entry: APP_DIR + '/index.react.js',
