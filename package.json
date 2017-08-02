@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "boot": "npm install && ./node_modules/.bin/flow-typed",
-    "test": "./node_modules/.bin/ava --verbose --tap | ./node_modules/.bin/tap-nyan",
+    "test": "./node_modules/.bin/ava --verbose && echo $?",
     "flow": "flow",
     "dev": "webpack-dev-server --env=dev",
     "build:dev": "webpack --env=dev --progress --profile --colors",
     "build:dist": "webpack --env=prod --progress --profile --colors"
   },
+  "pre-commit": [
+    "test"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sashimii/react-starteroni.git"
@@ -27,7 +30,6 @@
       "src/*.test.js"
     ],
     "source": [
-      "**/*.{js,jsx}",
       "!dist/**/*"
     ],
     "concurrency": 5,
