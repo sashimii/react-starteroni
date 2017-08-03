@@ -1,6 +1,9 @@
 [ignore]
 .*/node_modules/fbjs/.*
 .*/node_modules/editions/.*
+/src/**/**/*.test.js
+/src/**/*.test.js
+/src/*.test.js
 
 [include]
 
@@ -28,3 +31,4 @@ esproposal.decorators=ignore
 suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
 suppress_comment=\\(.\\|\n\\)*\\$IgnoreGlobal
+suppress_comment=\\(.\\|\n\\)*\\$FlowIgnore
