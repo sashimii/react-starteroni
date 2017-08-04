@@ -7,6 +7,7 @@
     "es2017"
   ],
   "plugins": [
+    "babel-plugin-webpack-loaders",
     "transform-flow-comments",
     "transform-es2015-modules-commonjs"
   ]

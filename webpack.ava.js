@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   output: {
     // YOU NEED TO SET libraryTarget: 'commonjs2'
@@ -6,9 +8,10 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.css$/,
+        test: /\.(css|scss)$/,
         loaders: [
           'style-loader',
+          'sass-loader',
           'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]--[hash:base64:5]',
           'postcss-loader',
         ],
