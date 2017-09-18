@@ -5,17 +5,33 @@
   "main": "index.js",
   "scripts": {
     "boot": "npm install && ./node_modules/.bin/flow-typed",
-    "test:ava": "./node_modules/.bin/ava --verbose && exit $?",
+    "pretty:js": "prettier --single-quote --write /src/**",
+    "pretty:scss": "prettier --write /src/**/**/*.scss",
+    "test:jest": "./node_modules/.bin/jest",
     "test:eslint": "./node_modules/.bin/eslint src/** && echo $?",
-    "test:sass": "./node_modules/.bin/sass-lint 'src/**/*.scss' -v -q && echo $?",
+    "test:scss": "./node_modules/.bin/sass-lint 'src/**/*.scss' -v -q && echo $?",
     "flow": "flow",
     "dev": "webpack-dev-server --env=dev --progress --profile --colors",
     "build:dev": "webpack --env=dev --progress --profile --colors",
     "build:dist": "webpack --env=prod --progress --profile --colors"
   },
+  "jest": {
+    "modulePaths": [
+      "/src/client/**"
+    ],
+    "moduleFileExtensions": ["js"],
+    "moduleDirectories": ["node_modules", "bower_components", "shared"],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
+  },
   "pre-commit": [
-    "test:ava",
-    "test:eslint"
+    "pretty:js",
+    "pretty:scss",
+    "test:jest",
+    "test:eslint",
+    "test:scss"
   ],
   "repository": {
     "type": "git",
@@ -27,36 +43,18 @@
     "url": "https://github.com/sashimii/react-starteroni/issues"
   },
   "homepage": "https://github.com/sashimii/react-starteroni#readme",
-  "ava": {
-    "files": [
-      "src/**/*.test.js",
-      "src/*.test.js"
-    ],
-    "source": [
-      "!dist/**/*"
-    ],
-    "concurrency": 5,
-    "failFast": true,
-    "failWithoutAssertions": false,
-    "tap": true,
-    "powerAssert": false,
-    "modules": true,
-    "require": [
-      "babel-register"
-    ],
-    "babel": {
-      "extends": "./babel-test-config.json"
-    }
-  },
   "dependencies": {
     "axios": "^0.15.3",
     "bootstrap": "^3.3.7",
+    "eslint-plugin-prettier": "^2.1.2",
     "file-loader": "^0.10.0",
     "foundation": "^4.2.1-1",
     "foundation-sites": "^6.3.1",
     "html-webpack-plugin": "^2.28.0",
     "path": "^0.12.7",
+    "prettier": "^1.5.3",
     "react": "^15.4.2",
+    "react-css-modules": "^4.7.1",
     "react-dom": "^15.4.2",
     "svg-url-loader": "^2.0.1",
     "webpack-dev-server": "^2.3.0"
@@ -66,6 +64,7 @@
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
+    "babel-jest": "^21.0.2",
     "babel-loader": "^6.4.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
     "babel-plugin-transform-flow-comments": "^6.22.0",
@@ -89,12 +88,16 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.1.0",
+    "extract-text-webpack-plugin": "^3.0.0",
     "flow-babel-webpack-plugin": "^1.1.0",
     "flow-bin": "^0.51.1",
     "flow-webpack-plugin": "^0.3.6",
     "flowtype-loader": "^0.2.2",
     "gulp": "^3.9.1",
+    "identity-obj-proxy": "^3.0.0",
     "ignore-styles": "^5.0.1",
+    "imports-loader": "^0.7.1",
+    "jest": "^21.1.0",
     "mocha": "^3.5.0",
     "mocha-webpack": "^0.7.0",
     "node-sass": "^4.5.0",
@@ -104,6 +107,8 @@
     "react-addons-test-utils": "^15.6.0",
     "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1",
+    "regenerator-runtime": "^0.11.0",
+    "resolve-url-loader": "^2.1.0",
     "sass-lint": "^1.10.2",
     "sass-loader": "^6.0.0",
     "sasslint-webpack-plugin": "^1.0.4",

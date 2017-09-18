@@ -1,13 +1,16 @@
 /* @flow */
 
 import React from 'react';
-import './App.scss';
+import CSSModules from 'react-css-modules';
+import styles from './App.scss';
 
 function concat(a: string, b: string): string {
-  return (a + b);
+  return a + b;
 }
 
-const App = ({ a, b }: {a: string, b: string}): React$Element<> =>
-  <div className="app-style">{ concat(a, b) }</div>;
+const App = ({ a, b }: { a: string, b: string }): React$Element<> =>
+  <div styleName="app-style">
+    {concat(a, b)}
+  </div>;
 
-export default App;
+export default CSSModules(App, styles);

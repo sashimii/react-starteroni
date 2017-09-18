@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const sassLintPlugin = require('sasslint-webpack-plugin');
 const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
 
@@ -12,6 +13,11 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './src/client/index.html',
   filename: 'index.html',
   inject: 'body'
+});
+
+const ExtractTextPluginConfig = new ExtractTextPlugin({
+  filename: 'app.css',
+  allChunks: true
 });
 
 const config = {
@@ -29,6 +35,12 @@ module.exports = {
     // preLoaders: [
     //   {
     //     test: /\.js$/, loader: "flowtype", exclude: /node_modules/
+    //   }
+    // ],
+    // rules: [
+    //   {
+    //     test: require.resolve('./src/client/index.react.js'),
+    //     use: ""
     //   }
     // ],
     loaders: [
@@ -51,7 +63,8 @@ module.exports = {
         test: /\.s?css$/,
         loader: [
           'style-loader?sourceMap',
-          'css-loader',
+          'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+          'resolve-url-loader',
           'sass-loader?sourceMap'
         ]
       },
