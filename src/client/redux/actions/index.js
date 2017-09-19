@@ -4,3 +4,10 @@ export const addExclamationMark = numMarks => {
     numMarks
   };
 };
+
+export const updateCurrentProductView = productData => {
+  return {
+    type: 'UPDATE_CURRENT_PRODUCT_VIEW',
+    productData
+  };
+};

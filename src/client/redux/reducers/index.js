@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import exclamation from './exclamation';
+import products from './currentProductView';
 
-const excitedApp = combineReducers({
-  exclamation
+const applicationState = combineReducers({
+  exclamation,
+  products
 });
 
-export default excitedApp;
+export default applicationState;

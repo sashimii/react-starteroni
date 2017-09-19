@@ -12,15 +12,24 @@
     "test:scss": "./node_modules/.bin/sass-lint 'src/**/*.scss' -v -q && echo $?",
     "flow": "flow",
     "dev": "webpack-dev-server --env=dev --progress --profile --colors",
+    "dev:api": "json-server --watch json/db.json --port 8082",
     "build:dev": "webpack --env=dev --progress --profile --colors",
     "build:dist": "webpack --env=prod --progress --profile --colors"
   },
   "jest": {
     "collectCoverage": true,
     "mapCoverage": true,
-    "modulePaths": ["/src/**"],
-    "moduleFileExtensions": ["js"],
-    "moduleDirectories": ["node_modules", "bower_components", "shared"],
+    "modulePaths": [
+      "/src/**"
+    ],
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "bower_components",
+      "shared"
+    ],
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
     },
@@ -55,6 +64,7 @@
     "foundation": "^4.2.1-1",
     "foundation-sites": "^6.3.1",
     "html-webpack-plugin": "^2.28.0",
+    "json-server": "^0.12.0",
     "path": "^0.12.7",
     "prettier": "^1.5.3",
     "react": "^15.4.2",

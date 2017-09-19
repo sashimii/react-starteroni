@@ -3,14 +3,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import appReducers from './redux/reducers';
+import appState from './redux/reducers';
 import App from './components/App.react';
-import Excited from './components/Excited.react';
+import ProductDescription from './components/ProductDescription.react';
+
+import axios from 'axios';
+
+import { updateCurrentProductView } from './redux/actions';
 
 // import { Router, Route, IndexRoute, Link } from 'react-router';
-import { BrowserRouter, HashRouter, Router, Route } from 'react-router-dom';
+import {
+  BrowserRouter,
+  HashRouter,
+  Router,
+  Route,
+  Link
+} from 'react-router-dom';
 
-let store = createStore(appReducers);
+let store = createStore(appState);
+const { dispatch } = store;
 
 // import config from './config';
 
@@ -18,16 +29,23 @@ const AppComponent = () => {
   return <App a="Hello! " b="World! " />;
 };
 
-const Whatever = () => {
-  return <h1>Hello friendo</h1>;
+const Product = () => {
+  return <ProductDescription />;
 };
+
+const AppRouter = () => {};
+
+axios.get('http://localhost:8082/products').then(res => {
+  // console.log(res.data);
+  store.dispatch(updateCurrentProductView(res.data));
+  console.log(store.getState());
+});
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <div>
-        <Route path="/" component={AppComponent} />
-        <Route path="/whatever" component={Whatever} />
+        <Route path="/" component={Product} />
       </div>
     </BrowserRouter>
   </Provider>,
