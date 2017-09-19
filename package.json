@@ -14,7 +14,8 @@
     "dev": "webpack-dev-server --env=dev --progress --profile --colors",
     "dev:api": "json-server --watch json/db.json --port 8082",
     "build:dev": "webpack --env=dev --progress --profile --colors",
-    "build:dist": "webpack --env=prod --progress --profile --colors"
+    "build:dist": "webpack --env=prod --progress --profile --colors",
+    "git:add:all": "git add * && exit 0"
   },
   "jest": {
     "collectCoverage": true,
@@ -43,9 +44,11 @@
     "flow",
     "pretty:js",
     "pretty:scss",
+    "git:add:all",
     "test:jest",
     "test:eslint",
     "test:scss"
+
   ],
   "repository": {
     "type": "git",
