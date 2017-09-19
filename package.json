@@ -36,6 +36,7 @@
     }
   },
   "pre-commit": [
+    "flow",
     "pretty:js",
     "pretty:scss",
     "test:jest",
