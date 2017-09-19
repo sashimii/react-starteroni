@@ -1,6 +1,6 @@
 module.exports = function(env) {
-  if(typeof env === 'undefined') {
-    env = 'ava';
+  if (typeof env === "undefined") {
+    env = "ava";
   }
-  return require(`./webpack.${env}.js`)
-}
+  return require(`./webpack.${env}.js`);
+};

@@ -18,17 +18,9 @@
   "jest": {
     "collectCoverage": true,
     "mapCoverage": true,
-    "modulePaths": [
-      "/src/**"
-    ],
-    "moduleFileExtensions": [
-      "js"
-    ],
-    "moduleDirectories": [
-      "node_modules",
-      "bower_components",
-      "shared"
-    ],
+    "modulePaths": ["/src/**"],
+    "moduleFileExtensions": ["js"],
+    "moduleDirectories": ["node_modules", "bower_components", "shared"],
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
     },
