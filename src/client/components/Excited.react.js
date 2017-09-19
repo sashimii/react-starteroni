@@ -19,7 +19,7 @@ export const ExcitedComponent = ({
       <h1>{`LOL${exclamation}`}</h1>
       <button
         onClick={e => {
-          dispatch(addExclamationMark());
+          dispatch(addExclamationMark(1));
         }}
       >
         Get Excited!
