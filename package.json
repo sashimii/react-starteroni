@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "boot": "npm install && ./node_modules/.bin/flow-typed",
-    "pretty:js": "prettier --single-quote --write src/**/**/*.js src/**/*.js src/*.js",
+    "pretty:js": "prettier --single-quote --write src/**/**/**/*.js src/**/**/*.js src/**/*.js src/*.js",
     "pretty:scss": "prettier --write /src/**/**/*.scss",
     "test:jest": "./node_modules/.bin/jest",
     "test:eslint": "./node_modules/.bin/eslint src/** && echo $?",

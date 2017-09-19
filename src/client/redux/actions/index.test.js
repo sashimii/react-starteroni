@@ -8,21 +8,22 @@ describe('Testing Actions: ', () => {
     });
     it('should return numMarks', () => {
       let actionObj = addExclamationMark(3);
-      expect(actionObj.numMarks).toBe(3)
+      expect(actionObj.numMarks).toBe(3);
     });
   });
 
   describe('updateCurrentProductView(productData)', () => {
     it('should return type: "UPDATE_CURRENT_PRODUCT_VIEW"', () => {
-      let mockData = { myData: 'hello' }
+      let mockData = { myData: 'hello' };
       let actionObj = updateCurrentProductView(mockData);
       expect(actionObj.type).toBe('UPDATE_CURRENT_PRODUCT_VIEW');
     });
     it('should return product data as object', () => {
-      let mockData = { myData: 'hello' }
+      let mockData = { myData: 'hello' };
       let actionObj = updateCurrentProductView(mockData);
-      expect(JSON.stringify(actionObj.productData)).toBe(JSON.stringify(mockData))
+      expect(JSON.stringify(actionObj.productData)).toBe(
+        JSON.stringify(mockData)
+      );
     });
   });
-
 });
