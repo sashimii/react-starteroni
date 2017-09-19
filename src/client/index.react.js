@@ -22,8 +22,6 @@ const Whatever = () => {
   return <h1>Hello friendo</h1>;
 };
 
-
-
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
@@ -33,4 +31,5 @@ ReactDOM.render(
       </div>
     </BrowserRouter>
   </Provider>,
-  document.getElementById('app')); // eslint-disable-line
+  document.getElementById('app')
+); // eslint-disable-line

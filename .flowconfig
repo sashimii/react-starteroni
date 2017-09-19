@@ -6,10 +6,15 @@
 /src/*.test.js
 
 [include]
+/src/*.js
+/src/**/*.js
+/src/**/**/*.js
+/src/**/**/**/*.js
 
 [libs]
 
 [options]
+
 # Support webpack's resolve.root
 module.system.node.resolve_dirname=node_modules
 module.system.node.resolve_dirname=src
