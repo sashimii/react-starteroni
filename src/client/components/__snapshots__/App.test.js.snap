@@ -2,7 +2,7 @@
 
 exports[`App renders concatenated string 1`] = `
 <div
-  className="app-style"
+  styleName="app-style"
 >
   Testing this!
 </div>

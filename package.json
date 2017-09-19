@@ -29,7 +29,9 @@
       "bower_components",
       "shared"
     ],
-    "transform": {".*": "<rootDir>/node_modules/babel-jest"},
+    "transform": {
+      ".*": "<rootDir>/node_modules/babel-jest"
+    },
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|scss)$": "identity-obj-proxy"
@@ -66,6 +68,11 @@
     "react": "^15.4.2",
     "react-css-modules": "^4.7.1",
     "react-dom": "^15.4.2",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-devtools": "^3.4.0",
     "svg-url-loader": "^2.0.1",
     "webpack-dev-server": "^2.3.0"
   },

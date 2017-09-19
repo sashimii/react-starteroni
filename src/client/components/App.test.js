@@ -3,7 +3,7 @@
 import React from 'react';
 // import register from 'ignore-styles'
 // register(['.sass', '.scss'])
-import App from './App.react';
+import { App } from './App.react';
 // import sum from './sum';
 
 import renderer from 'react-test-renderer';
