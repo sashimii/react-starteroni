@@ -1,29 +1,29 @@
-const path = require("path");
-const fs = require("fs");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const sassLintPlugin = require("sasslint-webpack-plugin");
-const FlowBabelWebpackPlugin = require("flow-babel-webpack-plugin");
+const path = require('path');
+const fs = require('fs');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const sassLintPlugin = require('sasslint-webpack-plugin');
+const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
 
-const BUILD_DIR = path.resolve(__dirname, "dist/");
-const APP_DIR = path.resolve(__dirname, "src/client/");
+const BUILD_DIR = path.resolve(__dirname, 'dist/');
+const APP_DIR = path.resolve(__dirname, 'src/client/');
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: "./src/client/index.html",
-  filename: "index.html",
-  inject: "body"
+  template: './src/client/index.html',
+  filename: 'index.html',
+  inject: 'body'
 });
 
 const ExtractTextPluginConfig = new ExtractTextPlugin({
-  filename: "app.css",
+  filename: 'app.css',
   allChunks: true
 });
 
 const config = {
-  entry: APP_DIR + "/index.react.js",
+  entry: APP_DIR + '/index.react.js',
   output: {
     path: BUILD_DIR,
-    filename: "bundle.js"
+    filename: 'bundle.js'
   }
 };
 
@@ -44,38 +44,38 @@ module.exports = {
     // ],
     loaders: [
       {
-        enforce: "pre",
+        enforce: 'pre',
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "eslint-loader"
+        loader: 'eslint-loader'
       },
       {
         test: /\.js$/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         exclude: /node_modules/
       },
       {
         test: /\.svg$/,
-        loader: "svg-url-loader"
+        loader: 'svg-url-loader'
       },
       {
         test: /\.s?css$/,
         loader: [
-          "style-loader?sourceMap",
-          "css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]",
-          "resolve-url-loader",
-          "sass-loader?sourceMap"
+          'style-loader?sourceMap',
+          'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+          'resolve-url-loader',
+          'sass-loader?sourceMap'
         ]
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: "file-loader?name=public/fonts/[name].[ext]"
+        loader: 'file-loader?name=public/fonts/[name].[ext]'
       }
     ]
   },
   plugins: [
     HtmlWebpackPluginConfig,
     new FlowBabelWebpackPlugin(),
-    new sassLintPlugin({ glob: "src/**/*.s?(a|c)ss" })
+    new sassLintPlugin({ glob: 'src/**/*.s?(a|c)ss' })
   ]
 };
