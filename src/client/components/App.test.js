@@ -9,9 +9,6 @@ import { App } from './App.react';
 import renderer from 'react-test-renderer';
 
 test('App renders concatenated string', () => {
-	const app = renderer.create(
-		<App a="Testing " b="this!" />
-	).toJSON();
-	expect(app).toMatchSnapshot();
-
+  const app = renderer.create(<App a="Testing " b="this!" />).toJSON();
+  expect(app).toMatchSnapshot();
 });

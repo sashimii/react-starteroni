@@ -11,14 +11,10 @@ import sinon from 'sinon';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 
-
 describe('<Excited />: ', () => {
-
   let callback = sinon.spy();
 
-	const wrapper = shallow(
-    <Excited dispatch={callback} exclamation="!!!" />
-	)
+  const wrapper = shallow(<Excited dispatch={callback} exclamation="!!!" />);
 
   it('should render as expected', () => {
     expect(wrapper).toMatchSnapshot();
@@ -31,7 +27,6 @@ describe('<Excited />: ', () => {
   });
 
   it('should retrieve appropriate props from state', () => {
-
     let testState = {
       exclamation: '!!'
     };
@@ -40,8 +35,8 @@ describe('<Excited />: ', () => {
       exclamation: '!!'
     };
 
-    expect(JSON.stringify(mapStateToProps(testState))).toBe(JSON.stringify(expectedState));
-
+    expect(JSON.stringify(mapStateToProps(testState))).toBe(
+      JSON.stringify(expectedState)
+    );
   });
-
 });

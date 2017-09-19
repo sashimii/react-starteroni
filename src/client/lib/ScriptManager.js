@@ -1,7 +1,6 @@
 let self;
 
 export default class ScriptManager {
-
   constructor() {
     if (!self) {
       self = this;
@@ -30,7 +29,10 @@ export default class ScriptManager {
         //remove old script tag
         let scripttags = document.getElementsByTagName('script');
         for (var i = scripttags.length - 1; i >= 0; i--) {
-          if (scripttags[i].hasAttribute('src') && scripttags[i].getAttribute('src').indexOf(script) !== -1) {
+          if (
+            scripttags[i].hasAttribute('src') &&
+            scripttags[i].getAttribute('src').indexOf(script) !== -1
+          ) {
             scripttags[i].parentNode.removeChild(scripttags[i]);
             break;
           }
@@ -39,5 +41,4 @@ export default class ScriptManager {
     }
     this.addScriptUrl(script);
   }
-
 }

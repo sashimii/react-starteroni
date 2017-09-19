@@ -14,5 +14,4 @@ export const App = ({ a, b }: { a: string, b: string }): React$Element<> =>
     {concat(a, b)}
   </div>;
 
-
 export default CSSModules(App, styles);
