@@ -11,7 +11,6 @@
     "test:eslint": "./node_modules/.bin/eslint src/** && echo $?",
     "test:scss": "./node_modules/.bin/sass-lint 'src/**/*.scss' -v -q && echo $?",
     "flow": "flow",
-    "dev": "npm run dev:api & npm run dev:app &",
     "dev:app": "webpack-dev-server --env=dev --progress --profile --colors",
     "dev:api": "json-server --watch json/db.json --port 8082",
     "build:dev": "webpack --env=dev --progress --profile --colors",
