@@ -1,0 +1,21 @@
+
+
+.button {
+  float: left;
+  background-color: red;
+  margin-right: 1.1rem;
+  display: inline-block;
+
+
+  &-text {
+    padding: 0.7rem 0.85rem;
+    color: white;
+  }
+
+  &--round {
+    composes: button;
+    border-radius: 100%;
+    font-size: 14px;
+  }
+
+}

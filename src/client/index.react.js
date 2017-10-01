@@ -25,14 +25,6 @@ const { dispatch } = store;
 
 // import config from './config';
 
-const AppComponent = () => {
-  return <App a="Hello! " b="World! " />;
-};
-
-const Product = () => {
-  return <ProductDescription />;
-};
-
 const AppRouter = () => {};
 
 axios.get('http://localhost:8082/products').then(res => {
@@ -45,7 +37,7 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <div>
-        <Route path="/" component={Product} />
+        <Route path="/" component={App} />
       </div>
     </BrowserRouter>
   </Provider>,

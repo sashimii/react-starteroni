@@ -1,0 +1,27 @@
+.advert {
+
+  &-unit-container {
+    width: 100%;
+    float: left;
+    background-color: #E3E6EC;
+    padding: 1rem 0 3rem 0;
+  }
+
+  &-designation-text {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    width: 300px;
+    margin: 0 auto 0.75rem auto;
+    display: block;
+  }
+
+  &-container {
+    border: 1px solid grey;
+    background-color: pink;
+    width: 300px;
+    height: 250px;
+    margin: auto;
+  }
+
+}

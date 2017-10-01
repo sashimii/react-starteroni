@@ -1,0 +1,22 @@
+.tag {
+
+  &-container {
+    float: left;
+    border-radius: 50px;
+    background-color: #90B1BD;
+    padding: 0.75rem 1rem;
+    height: 0;
+    // margin-right: 15px;
+  }
+
+  &-text {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    float: left;
+    top: -0.6rem;
+    position: relative;
+  }
+
+}

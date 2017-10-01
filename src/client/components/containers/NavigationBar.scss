@@ -1,0 +1,20 @@
+
+.navbar {
+  &-container {
+    float: left;
+    width: 100%;
+    &--padded {
+      padding: 2rem 1.5rem 5rem 1.5rem;
+    }
+  }
+
+  &-logo {
+    float: left;
+  }
+
+  &-hamburger {
+    float: right;
+    margin-top: 5px;
+  }
+
+}

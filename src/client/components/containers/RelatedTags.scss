@@ -1,0 +1,30 @@
+.related-tags {
+  &-container {
+    width: 100%;
+    float: left;
+
+    ul {
+      li {
+        display: inline-block;
+      }
+    }
+  }
+
+  &-row {
+    float: left;
+    padding: 1.5rem;
+  }
+
+  &-text {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+  }
+
+  &-list {
+
+    &-item {
+      margin-right: 10px;
+    }
+  }
+}

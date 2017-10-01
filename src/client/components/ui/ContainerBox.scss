@@ -1,0 +1,15 @@
+@import '../../styles/mixins/aspect-ratio';
+@import '../../styles/mixins/breakpoint-mixins';
+
+.hero {
+  &-container {
+    @include aspect-ratio('hero', 320, 250);
+    @include tablet-up() {
+      @include aspect-ratio('hero',745,220);
+    }
+    @include desktop-up() {
+      @include aspect-ratio('hero',340,290);
+    }
+
+  }
+}

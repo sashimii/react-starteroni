@@ -1,0 +1,22 @@
+@import '../../styles/mixins/clearfix';
+@import '../../styles/mixins/container';
+
+.social-media-links {
+  &-container {
+    float: left;
+    width: 100%;
+    // padding: 1rem 1.5rem;
+    // margin: 0 auto;
+    @include clearfix;
+  }
+  &-buttons {
+    margin: 0 auto;
+    padding: 1rem 0 3.5rem 0;
+    /* float: left; */
+    width: 162.375px;
+    // margin: 0 auto;
+    // // width: 50%;
+    // padding: 1rem 0 2rem 1.5rem;
+    // float: left;
+  }
+}

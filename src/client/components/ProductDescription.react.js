@@ -3,6 +3,7 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 import { connect } from 'react-redux';
+import ContainerBox from './ui/ContainerBox.react';
 // import { Link } from 'react-router-dom';
 
 // import { addExclamationMark } from '../redux/actions';
@@ -14,27 +15,11 @@ export const ProductDescription = ({
   dispatch: Function,
   products: Object
 }): React$Element<> => {
-  if (products.productData) {
-    const { name, color, images } = products.productData[0];
-
-    return (
-      <div>
-        <h1>
-          {name}
-        </h1>
-        <h2>
-          {color}
-        </h2>
-        <div>
-          {images.map((image, index) => {
-            return <img key={'product-image-' + index} src={image.medium} />;
-          })}
-        </div>
-      </div>
-    );
-  } else {
-    return <div>Loading!</div>;
-  }
+  return (
+    <div>
+      <ContainerBox bgURL="https://s3.amazonaws.com/joefresh-resource-prod-new/ContentMedia/2017_P9/WK36-NewHP/promotile-newarrivals/wk36_promotile_womensnewarrivals" />
+    </div>
+  );
 };
 
 // const Images = ({ image }) => {

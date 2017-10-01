@@ -1,0 +1,8 @@
+@import '../../styles/mixins/breakpoint-mixins';
+@import '../../styles/mixins/clearfix';
+
+.article {
+  float: left;
+  padding: 0 1.5rem;
+  @include clearfix;
+}

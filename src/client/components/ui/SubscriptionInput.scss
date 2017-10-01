@@ -1,0 +1,35 @@
+.input {
+  &-container {
+    width: 100%;
+  }
+  &-box {
+    float: left;
+    width: 170px;
+    padding: 0.25rem 0 0.25rem 0.75rem;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 100;
+  }
+
+  &-button {
+    float: left;
+    text-rendering: auto;
+    // color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: none;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    border: none;
+    padding: 0.385rem;
+    background: red;
+    color: white;
+    font-size: 18px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 100;
+  }
+}
