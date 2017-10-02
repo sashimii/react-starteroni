@@ -12,12 +12,8 @@ type Props = {
 const Header = ({ heading, subheading }: Props): React$Element<> => {
   return (
     <header styleName="header">
-      <h1 styleName="header-heading">
-        {heading}
-      </h1>
-      <span styleName="header-subheading">
-        {subheading}
-      </span>
+      <h1 styleName="header-heading">{heading}</h1>
+      <span styleName="header-subheading">{subheading}</span>
     </header>
   );
 };

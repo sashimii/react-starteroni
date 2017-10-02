@@ -21,9 +21,7 @@ const RelatedTags = ({ tags }: Props): React$Element<> => {
               styleName="related-tags-list-item"
               key={`filed-under-tag-${index}`}
             >
-              <Tag>
-                {tag}
-              </Tag>
+              <Tag>{tag}</Tag>
             </li>
           );
         })}

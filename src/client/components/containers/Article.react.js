@@ -11,11 +11,7 @@ type Props = {
 };
 
 const Article = ({ children }: Props): React$Element<> => {
-  return (
-    <article styleName="article">
-      {children}
-    </article>
-  );
+  return <article styleName="article">{children}</article>;
 };
 
 export default CSSModules(Article, styles);

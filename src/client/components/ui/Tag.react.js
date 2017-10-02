@@ -11,9 +11,7 @@ type Props = {
 const Tag = ({ children }: Props): React$Element<> => {
   return (
     <div styleName="tag-container">
-      <span styleName="tag-text">
-        {children}
-      </span>
+      <span styleName="tag-text">{children}</span>
     </div>
   );
 };

@@ -11,9 +11,7 @@ type Props = {
 const Logo = ({ wordmark }: Props): React$Element<> => {
   return (
     <div styleName="logo-container">
-      <span styleName="logo-wordmark">
-        {wordmark}
-      </span>
+      <span styleName="logo-wordmark">{wordmark}</span>
     </div>
   );
 };

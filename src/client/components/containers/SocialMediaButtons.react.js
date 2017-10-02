@@ -7,9 +7,7 @@ import styles from './SocialMediaButtons.scss';
 const SocialMediaButtons = ({ children }) => {
   return (
     <div styleName="social-media-links-container">
-      <div styleName="social-media-links-buttons">
-        {children}
-      </div>
+      <div styleName="social-media-links-buttons">{children}</div>
     </div>
   );
 };

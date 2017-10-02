@@ -16,9 +16,7 @@ const HeroImage = ({ url, caption }): React$Element<> => {
         <img styleName="hero-image" src={url} />
       </div>
       <div styleName="hero-caption-container">
-        <span styleName="hero-caption">
-          {caption}
-        </span>
+        <span styleName="hero-caption">{caption}</span>
       </div>
     </div>
   );

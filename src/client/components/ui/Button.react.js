@@ -14,9 +14,7 @@ type Props = {
 const Button = ({ shape, text, icon, color }): React$Element<> => {
   return (
     <div style={{ backgroundColor: color }} styleName={`button--${shape}`}>
-      <div styleName="button-text">
-        {text}
-      </div>
+      <div styleName="button-text">{text}</div>
     </div>
   );
 };

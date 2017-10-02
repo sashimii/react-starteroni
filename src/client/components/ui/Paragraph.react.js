@@ -9,11 +9,7 @@ type Props = {
 };
 
 const Paragraph = ({ children }: Props): React$Element<> => {
-  return (
-    <p styleName="paragraph">
-      {children}
-    </p>
-  );
+  return <p styleName="paragraph">{children}</p>;
 };
 
 export default CSSModules(Paragraph, styles);

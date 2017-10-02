@@ -18,7 +18,7 @@ import Advert from './ui/Advert.react';
 import Tag from './ui/Tag.react';
 import SubscriptionInput from './ui/SubscriptionInput.react';
 
-export const App = ({ a, b }: { a: string, b: string }): React$Element<> =>
+export const App = ({ a, b }: { a: string, b: string }): React$Element<> => (
   <div styleName="app-style">
     <NavigationBar />
     <Header
@@ -81,6 +81,7 @@ export const App = ({ a, b }: { a: string, b: string }): React$Element<> =>
     <RelatedTags tags={['Lorem', 'Ipsum']} />
     <SubscriptionBox />
     <Advert />
-  </div>;
+  </div>
+);
 
 export default CSSModules(App, styles);
