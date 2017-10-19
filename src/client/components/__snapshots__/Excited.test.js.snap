@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Excited />:  should render as expected 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <div>
+    <h1>
+      LOL!!!
+    </h1>
+    <button
+      onClick={[Function]}
+    >
+      Get Excited!
+    </button>
+    <Link
+      replace={false}
+      to="/whatever"
+    >
+      Go Here
+    </Link>
+  </div>,
+  "nodes": Array [
+    <div>
+      <h1>
+        LOL!!!
+      </h1>
+      <button
+        onClick={[Function]}
+      >
+        Get Excited!
+      </button>
+      <Link
+        replace={false}
+        to="/whatever"
+      >
+        Go Here
+      </Link>
+    </div>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_context": Object {},
+    "_element": <Unknown
+      dispatch={[Function]}
+      exclamation="!!!"
+    />,
+    "_instance": null,
+    "_newState": null,
+    "_rendered": <div>
+      <h1>
+        LOL!!!
+      </h1>
+      <button
+        onClick={[Function]}
+      >
+        Get Excited!
+      </button>
+      <Link
+        replace={false}
+        to="/whatever"
+      >
+        Go Here
+      </Link>
+    </div>,
+    "_rendering": false,
+    "_updater": Updater {
+      "_renderer": [Circular],
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Unknown
+    dispatch={[Function]}
+    exclamation="!!!"
+  />,
+}
+`;
