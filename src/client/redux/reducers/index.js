@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
-import exclamation from './exclamation';
-import products from './currentProductView';
+
+import { selectedCity } from './cities';
 
 const applicationState = combineReducers({
-  exclamation,
-  products
+  selectedCity
 });
 
 export default applicationState;

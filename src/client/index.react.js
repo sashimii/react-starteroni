@@ -9,7 +9,7 @@ import ProductDescription from './components/ProductDescription.react';
 
 import axios from 'axios';
 
-import { updateCurrentProductView } from './redux/actions';
+import { updateCurrentProductView, fetchWoeid } from './redux/actions';
 
 // import { Router, Route, IndexRoute, Link } from 'react-router';
 import {
@@ -27,11 +27,11 @@ const { dispatch } = store;
 
 const AppRouter = () => {};
 
-axios.get('http://localhost:8082/products').then(res => {
-  // console.log(res.data);
-  store.dispatch(updateCurrentProductView(res.data));
-  console.log(store.getState());
-});
+const toronto = {
+  value: 'toronto',
+  text: 'Toronto'
+};
+fetchWoeid(toronto)(dispatch);
 
 ReactDOM.render(
   <Provider store={store}>
