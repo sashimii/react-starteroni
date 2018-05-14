@@ -11,6 +11,8 @@ import axios from 'axios';
 
 import { updateCurrentProductView, fetchWoeid } from './redux/actions';
 
+import { retrievePollData } from './redux/actions/poll';
+
 // import { Router, Route, IndexRoute, Link } from 'react-router';
 import {
   BrowserRouter,
@@ -31,7 +33,7 @@ const toronto = {
   value: 'toronto',
   text: 'Toronto'
 };
-fetchWoeid(toronto)(dispatch);
+retrievePollData()(dispatch);
 
 ReactDOM.render(
   <Provider store={store}>
@@ -41,5 +43,5 @@ ReactDOM.render(
       </div>
     </BrowserRouter>
   </Provider>,
-  document.getElementById('app')
+  document.getElementById('Mainstreet_map--Ontario-2018')
 ); // eslint-disable-line

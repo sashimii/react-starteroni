@@ -75,7 +75,7 @@ module.exports = {
   },
   plugins: [
     HtmlWebpackPluginConfig,
-    new FlowBabelWebpackPlugin(),
+    // new FlowBabelWebpackPlugin(),
     new sassLintPlugin({ glob: 'src/**/*.s?(a|c)ss' })
   ]
 };

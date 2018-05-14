@@ -90,7 +90,7 @@ module.exports = {
   plugins: [
     HtmlWebpackPluginConfig,
     // new ExtractTextPlugin("styles.css"),
-    new FlowBabelWebpackPlugin(),
+    // new FlowBabelWebpackPlugin(),
     new sassLintPlugin({ glob: 'src/**/*.s?(a|c)ss' }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
