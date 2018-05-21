@@ -1,25 +1,30 @@
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
-
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import bodyParser from 'body-parser';
+import { collectInitial } from 'node-style-loader/collect';
+import { minify } from 'html-minifier';
+
+import apiRouter from './routes';
 
 import Paragraph from '../client/components/ui/Paragraph.react';
 import App from '../client/components/App.react';
-
-import { collectInitial } from 'node-style-loader/collect';
-
-import { minify } from 'html-minifier';
 
 // do not call this before your application component has been imported
 const initialStyleTag = collectInitial();
 
 const app = express();
 
+const viewsRouter = express.Router();
+
+// parse application/json
+app.use(bodyParser.json());
+// retrieve static files from /public
 app.use('/public', express.static('dist/public'));
 
-app.get('/', function(req, res) {
+viewsRouter.get('/', function(req, res) {
   // global.__universal__.replay();
   // console.log();
   // const Styles = global.__universal__.reactStyles(React);
@@ -51,6 +56,9 @@ app.get('/', function(req, res) {
     )
   );
 });
+
+app.use('/', viewsRouter);
+app.use('/api', apiRouter);
 
 app.listen(3000, function() {
   console.log('Example app listening on port 3000!');
