@@ -15,7 +15,7 @@ const sequelize = new Sequelize(
 );
 
 export const Employee = sequelize.define('employee', {
-  uuid: {
+  userId: {
     type: Sequelize.UUID,
     defaultValue: Sequelize.UUIDV4,
     primaryKey: true
@@ -35,6 +35,45 @@ export const Employee = sequelize.define('employee', {
   }
 });
 
-Employee.sync({ alter: true });
+export const Review = sequelize.define('review', {
+  reviewId: {
+    type: Sequelize.UUID,
+    defaultValue: Sequelize.UUIDV1,
+    primaryKey: true
+  },
+  rating: {
+    type: Sequelize.ENUM('Inadequate', 'Satisfactory', 'Excellent')
+  },
+  content: {
+    type: Sequelize.TEXT
+  }
+});
+
+export const Assignment = sequelize.define('assignment', {
+  assignmentId: {
+    type: Sequelize.UUID,
+    defaultValue: Sequelize.UUIDV1,
+    primaryKey: true
+  },
+  type: {
+    type: Sequelize.ENUM('Review')
+  }
+});
+
+// An Assignment can belong to many employees 1:M
+Assignment.belongsToMany(Employee, { through: 'EmployeeAssignments' });
+
+// An Employee can belong to many assignments 1:M
+Employee.belongsToMany(Assignment, { through: 'EmployeeAssignments' });
+
+// An employee can have many reviews  1:M
+Employee.hasMany(Review, { as: 'EmployeeReviews' });
+
+// A review can only belong to a single employee 1:1
+Review.belongsTo(Employee);
+
+Employee.sync();
+Review.sync();
+Assignment.sync();
 
 export default sequelize;
