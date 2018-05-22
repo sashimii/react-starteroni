@@ -1,24 +1,10 @@
 import { Employee } from '../model';
-
-const ifExists = resBodyItem => {
-  return typeof resBodyItem !== 'undefined';
-};
-
-const assignIfExists = resBodyItem => {
-  return ifExists(resBodyItem) ? resBodyItem : null;
-};
+import { getValidObject } from '../lib/validate';
 
 export const addEmployee = (req, res) => {
-  const lastName = assignIfExists(req.body.lastName);
-  const firstName = assignIfExists(req.body.firstName);
-  const username = assignIfExists(req.body.username);
-  const isAdmin = false;
-  Employee.create({
-    username,
-    firstName,
-    lastName,
-    isAdmin
-  })
+  let validEmployee = getValidObject(req.body);
+  validEmployee.isAdmin = false;
+  Employee.create(validEmployee)
     .then(() =>
       Employee.findOrCreate({ where: { username } }).then(employee =>
         res.send(employee)
@@ -27,7 +13,7 @@ export const addEmployee = (req, res) => {
     .catch(function(err) {
       switch (err.name) {
         case 'SequelizeUniqueConstraintError':
-          res.send('Sorry, this username is taken.');
+          res.send('Sorry, this username is taken.\n');
           return;
         default:
           console.log('ERROR: ', err);
@@ -38,19 +24,41 @@ export const addEmployee = (req, res) => {
 };
 
 export const removeEmployee = (req, res) => {
+  Employee.destroy({
+    where: {
+      username: req.params.username
+    }
+  })
+    .then(() => {
+      res.send(`Deleted ${req.params.username}`);
+    })
+    .catch(() => {
+      res.status(404).send(`User Not Found`);
+    });
   console.log('REMOVING EMPLOYEE');
 };
 
 export const updateEmployee = (req, res) => {
+  let validUpdatedEmployee = getValidObject(req.body);
+
+  Employee.update(validUpdatedEmployee, {
+    where: {
+      username: req.params.username
+    }
+  }).then(() => {
+    res.send({ updated: true });
+  });
   console.log('UPDATING EMPLOYEE');
 };
 
-export const postEmployee = (req, res) => {
-  console.log(req.body);
-};
-
 export const getEmployee = (req, res) => {
-  res.send({ id: 'LOLOLOL', name: 'Bob Smith' });
+  Employee.find({ where: { username: req.params.username } })
+    .then(employee => {
+      res.send(employee);
+    })
+    .catch(err => {
+      res.status(404).send('Not found');
+    });
 };
 
 export const getAllEmployees = (req, res) => {

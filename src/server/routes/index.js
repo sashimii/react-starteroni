@@ -2,8 +2,9 @@ import express from 'express';
 import {
   getEmployee,
   getAllEmployees,
-  postEmployee,
-  addEmployee
+  addEmployee,
+  updateEmployee,
+  removeEmployee
 } from './employees';
 import sequelize from '../model';
 
@@ -18,9 +19,39 @@ sequelize
 
 const apiRouter = express.Router();
 
+/* EMPLOYEE ROUTES */
+// GET
 apiRouter.get('/employee', getAllEmployees);
+apiRouter.get('/employee/:username', getEmployee);
+
+// POSTS
 apiRouter.post('/employee', addEmployee);
 
-export default apiRouter;
+// UPDATES
+apiRouter.put('/employee/:username', updateEmployee);
 
-// curl -d '{"username": "stailor", "firstName":"Sushil", "lastName": "Tailor"}' -H "Content-Type: application/json" http://127.0.0.1:3000/api/employee
+// DELETES
+apiRouter.delete('/employee/:username', removeEmployee);
+
+
+
+/* REVIEW ROUTES */
+// GET
+apiRouter.get('/reviews/:username', getAllReviews);
+apiRouter.get('/reviews/:username/:reviewId', getReview);
+
+// POSTS
+apiRouter.post('/reviews/:username', addReview);
+
+// UPDATES
+apiRouter.post('/reviews/:username', editReview);
+
+// DELETES
+
+/* ASSIGNMENT ROUTE */
+// POSTS
+apiRouter.post('/assign/', assignReview);
+
+
+
+export default apiRouter;
